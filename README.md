@@ -1,4 +1,4 @@
-# Customised Database Management System (CDMS)
+# Database Management System (DMS)
 
 The Customised Database Management System (DBMS) is a simple database system implemented in Java. It provides essential database functionalities, including creating databases, tables, inserting data, retrieving data, updating records, and deleting records.
 
