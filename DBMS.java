@@ -30,7 +30,7 @@ class Student
     }
 }
 
-class DBMS
+class DBMS1
 {
    public LinkedList <Student> lobj;
 
@@ -287,7 +287,7 @@ class DBMS
     }
 }
 
-class DBMS1
+class DBMS
 {
     public static void main(String arg[])
     {
