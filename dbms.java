@@ -45,7 +45,7 @@ class DBMS
     {
         Scanner scanobj = new Scanner(System.in);
 
-        System.out.println("Mayur's customised DBMS started succesfully....");
+        System.out.println("Mayur's customised DBMS started successfully....");
         String Query = "";
 
         while(true)
@@ -60,10 +60,12 @@ class DBMS
             {
                 if("Help".equals(tokens[0]))
                 {
-                    System.out.println("This application is used to demonstrates the customised DBMS");
+                    System.out.println("This application is used to demonstrate the customised DBMS");
                     System.out.println("Exit : Terminate DBMS");
                     System.out.println("Display all data : select * from student");
                     System.out.println("Insert data : Insert into student Name Salary");
+                    System.out.println("Update data : Update student set Name='XYZ' where RID=1");
+                    System.out.println("Update data : Update student set Salary=2000 where RID=1");
                 }
                 else if("Exit".equals(tokens[0]))
                 {
@@ -91,6 +93,25 @@ class DBMS
                 if("Insert".equals(tokens[0]))
                 {
                      InsertData(tokens[3],Integer.parseInt(tokens[4]));
+                }
+            }
+            else if(QuerySize == 8)
+            {
+                // Update student set Name='XYZ' where RID=1
+                if("Update".equals(tokens[0]))
+                {
+                    if("Name".equals(tokens[3]))
+                    {
+                        int rid = Integer.parseInt(tokens[7]);
+                        String newName = tokens[5].replace("'", "");
+                        UpdateName(rid, newName);
+                    }
+                    else if("Salary".equals(tokens[3]))
+                    {
+                        int rid = Integer.parseInt(tokens[7]);
+                        int newSalary = Integer.parseInt(tokens[5]);
+                        UpdateSalary(rid, newSalary);
+                    }
                 }
             }
 
@@ -168,6 +189,36 @@ class DBMS
             }
             index++;
         }
+    }
+
+    // Update salary by RID
+    public void UpdateSalary(int rid, int newSalary)
+    {
+        for (Student sref : lobj)
+        {
+            if (sref.RID == rid)
+            {
+                sref.Salary = newSalary;
+                System.out.println("Record updated successfully.");
+                return;
+            }
+        }
+        System.out.println("Record not found.");
+    }
+
+    // Update name by RID
+    public void UpdateName(int rid, String newName)
+    {
+        for (Student sref : lobj)
+        {
+            if (sref.RID == rid)
+            {
+                sref.Name = newName;
+                System.out.println("Record updated successfully.");
+                return;
+            }
+        }
+        System.out.println("Record not found.");
     }
 
     public void AggregateMax()
