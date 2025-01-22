@@ -34,7 +34,7 @@ class DBMS1
 {
    public LinkedList <Student> lobj;
 
-    public DBMS()
+    public DBMS1()
     {
         lobj = new LinkedList<>();
     }
