@@ -291,7 +291,7 @@ class DBMS
 {
     public static void main(String arg[])
     {
-        DBMS dobj = new DBMS();
+       DBMS1 dobj = new DBMS1();
 
         dobj.StartDBMS();
 
