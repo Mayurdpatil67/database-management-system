@@ -75,13 +75,22 @@ class DBMS1 {
             } else if (QuerySize == 8) {
                 // Update student set Name='XYZ' where RID=1
                 if ("Update".equals(tokens[0])) {
+                    // Ensure that the format is correctly followed
                     if ("Name".equals(tokens[3])) {
-                        int rid = Integer.parseInt(tokens[7]);
                         String newName = tokens[5].replace("'", ""); // Remove single quotes
+                        int rid = Integer.parseInt(tokens[7]);
+
+                        // Debug output to check query parts
+                        System.out.println("Update Name: RID = " + rid + ", New Name = " + newName);
+
                         UpdateName(rid, newName);
                     } else if ("Salary".equals(tokens[3])) {
-                        int rid = Integer.parseInt(tokens[7]);
                         int newSalary = Integer.parseInt(tokens[5]);
+                        int rid = Integer.parseInt(tokens[7]);
+
+                        // Debug output to check query parts
+                        System.out.println("Update Salary: RID = " + rid + ", New Salary = " + newSalary);
+
                         UpdateSalary(rid, newSalary);
                     }
                 }
