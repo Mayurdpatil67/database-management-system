@@ -1,4 +1,3 @@
-//CDMS 
 import java.lang.*;
 import java.util.*;
 
@@ -121,8 +120,20 @@ class DBMS1
     // Insert into query
     public void InsertData(String str, int value)
     {
-        Student sobj = new Student(str,value);
+        // Check if a student with the same name already exists
+        for (Student sref : lobj)
+        {
+            if (sref.Name.equals(str)) // Check for duplicate name
+            {
+                System.out.println("Error: Student with name " + str + " already exists.");
+                return;
+            }
+        }
+
+        // Insert the new student
+        Student sobj = new Student(str, value);
         lobj.add(sobj);
+        System.out.println("Record inserted successfully.");
     }
 
     // Display all without condition
