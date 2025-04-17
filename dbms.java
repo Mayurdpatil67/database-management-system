@@ -17,7 +17,7 @@ class Student {
     }
 }
 
-class DBMS {
+class dbms {
     private final Map<Integer, Student> students = new HashMap<>();
 
     public void Start() {
@@ -161,6 +161,6 @@ class DBMS {
     }
 
     public static void main(String[] args) {
-        new DBMS().Start();
+        new dbms().Start();
     }
 }
